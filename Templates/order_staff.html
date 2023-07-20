@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Назначение сотрудника на заказ{% endblock %}
+
+{% block header %}
+<center>Назначение сотрудника на заказ № {{ord.id}}</center>
+{% endblock %}
+
+{% block content %}
+<center>
+<form method="POST" action="order">
+   {% csrf_token %}
+   <label for="staff_name">Введите номер сотрудника: </label>
+   <input id="staff_name" type="text" name="name_field">
+   <button type="submit" class="btn btn-dark col-2">Назначить</button>
+</form>
+    <p>Номера свободных сотрудников:</p>
+    {% for st in staf %}
+        {% if st.efficiency == False and st.control == False %}
+            <p>{{st.user_id}} </p>
+        {% endif %}
+    {% endfor  %}
+
+</center>
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}

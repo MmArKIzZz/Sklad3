@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Заказать со склада{% endblock %}
+
+{% block header %}
+<center>Заказать со склада</center>
+{% endblock %}
+
+{% block content %}
+<center>
+
+    <form action="{% url 'zakaz_skladu' %}" method="post">
+        {% csrf_token %}
+        {{ car_form.as_p }}
+        <input type="submit" value="Ok">
+    </form>
+</center>
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}

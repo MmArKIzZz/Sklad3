@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Заказы{% endblock %}
+
+{% block header %}
+<center>Заказы</center>
+{% endblock %}
+
+{% block content %}
+<div><a onclick="javascript:history.back(); return false;">Вернуться на главную странице</a></div>
+<div>
+    {% for ord in order %}
+    <p>{{ord.id}} |
+    {% if ord.shipping %}
+        приём товара |
+    {% else %}
+        отправка товара |
+    {% endif%}
+    {{ord.condition}} |
+    {{ord.quantity}} |
+    {{ord.product.name}} |
+    {% if ord.staff_id %} {{ord.staff.user.username}} |
+    {% endif %}
+    <form action=""><button>удалить</button></form>
+    </p>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

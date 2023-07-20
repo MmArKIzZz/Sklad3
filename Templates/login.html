@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}log{% endblock %}
+
+{% block header %}
+<center>log</center>
+{% endblock %}
+
+
+{% block content %}
+<!--   <form>
+        <div>
+            <p>
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter Name" name="name" required>
+            </p>
+
+            <p>
+            <label for="password"><b>Password</b></label>
+            <input type="text" placeholder="Enter Password" required>
+            </p>
+
+            <button type="submit" class="registerbtn">Ok</button>
+        </div>
+    </form> -->
+
+<center>
+
+  <!--  <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {{ car_form.as_p }}
+        <input type="submit" value="Ok">
+    </form>-->
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Войти">
+    </form>
+</center>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}

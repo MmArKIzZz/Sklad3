@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Склад{% endblock %}
+
+{% block header %}
+<center>Склад</center>
+{% endblock %}
+
+
+{% block content %}
+<div><a onclick="javascript:history.back(); return false;">Вернуться на главную странице</a></div>
+    <div>
+        {% for p in prod %}
+            <p>{{p.name}} |
+            {{p.category}} |
+            {{p.text}} |
+            {{p.quantity}} |
+            {{p.condractor_on_stock.company}} |<form action=""><button>удалить</button>
+  </form></p>
+        {% endfor %}
+    </div>
+<div>
+    <p><a href="{% url 'product' %}"> добавить товар</a></p>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

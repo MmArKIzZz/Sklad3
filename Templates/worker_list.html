@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Сотрудники{% endblock %}
+
+{% block header %}
+<center>Сотрудники</center>
+{% endblock %}
+
+
+{% block content %}
+<div><a onclick="javascript:history.back(); return false;">Вернуться на главную странице</a></div>
+<div>
+    {% for stf in wor1 %}
+        <p>{{stf.user.username}} |
+                    {% if stf.efficienct == True %} в отпуске |
+                    {% elif stf.efficienct == Folse and stf.control == True %}работает | {{stf.condition}} |
+                    {% else %} свободен |
+                    {% endif %}</p>
+    ------------------------------------
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

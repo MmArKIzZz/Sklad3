@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Добавить новый товар{% endblock %}
+
+{% block header %}
+<center>Добавить новый товар</center>
+{% endblock %}
+
+{% block content %}
+<center>
+
+    <form action="{% url 'product' %}" method="post">
+        {% csrf_token %}
+        {{ car_form.as_p }}
+        <input type="submit" value="Ok">
+    </form>
+</center>
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}

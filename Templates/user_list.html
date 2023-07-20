@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Штат сотрудников{% endblock %}
+
+{% block header %}
+<center>Штат сотрудников</center>
+{% endblock %}
+
+
+{% block content %}
+<div><a onclick="javascript:history.back(-2); return false;">Вернуться на главную странице</a></div>
+<div>
+    {% for u in us %}
+        {% if u.id != 1 %}
+            <p>{{u.username}} |
+                {{u.role}} | <form action=""><button>удалить</button></form>
+            </p>
+        {% endif %}
+    {% endfor %}
+        <p><a href="{% url 'user_save' %}"> добавить сотрудника</a></p>
+
+
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

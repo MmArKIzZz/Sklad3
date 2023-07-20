@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}___{% endblock %}
+
+{% block header %}
+<center>___</center>
+{% endblock %}
+
+
+{% block content %}
+<center>
+   Спасибо за заказ
+</center>
+{% endblock %}
+
+{% block footer %}
+<center>
+   <p><form action="{% url 'zakaz_skladu' %}"><button>Сделать новый заказ</button></form></p>
+</center>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Добавить нового поставщика{% endblock %}
+
+{% block header %}
+<center>Добавить нового поставщика</center>
+{% endblock %}
+
+{% block content %}
+<center>
+
+    <form action="{% url 'partner_save' %}" method="post">
+        {% csrf_token %}
+        {{ car_form.as_p }}
+        <input type="submit" value="Ok">
+    </form>
+</center>
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Поставщики{% endblock %}
+
+{% block header %}
+<center>Поставщик</center>
+{% endblock %}
+
+
+{% block content %}
+<div><a onclick="javascript:history.back(); return false;">Вернуться на главную странице</a></div>
+<div>
+    {% for post in pas %}
+    <p>{{post.company}} |
+        {{post.number}} |
+        {{post.email}} |
+
+        {% for p in prod %}
+            {% if p.condractor_on_stock_id == post.id %}
+                {{p.name}}
+            {% endif %}
+        {% endfor %}
+
+        {{prod.id}} |
+ <form  method="post"><button>удалить</button></form>
+    </p>
+    {% endfor %}
+
+            <p><a href="{% url 'partner_save' %}"> добавить </a></p>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

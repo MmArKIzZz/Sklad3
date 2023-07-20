@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}{{ad.username}}{% endblock %}
+
+{% block header %}
+<center>{{ad.username}}</center>
+{% endblock %}
+
+
+{% block content %}
+<center>
+    <div>
+        {% if prod %}
+            Уведомление: запасы товаров
+            {% for p in prod %}
+                {{p}},
+            {% endfor %}
+            подходят к концу.
+        {% endif %}
+    </div>
+
+        <div>
+        <p><form action="{% url 'roduct_list_gad' %}"><button>Список товаров на складе</button></form></p>
+        <p><form action="{% url 'user_list' %}"><button>Штат сотрудников</button></form></p>
+        <p><form action="{% url 'order_list_gad' %}"><button>Список заказов</button></form></p>
+        <p><form action="{% url 'pastav_list_gad' %}"><button>Список поставщиковв</button></form></p>
+    </div>
+
+</center>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

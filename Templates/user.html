@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}{{user.username}}{% endblock %}
+
+{% block header %}
+<center>{{user.username}}</center>
+{% endblock %}
+
+
+{% block content %}
+<center>
+    <div>
+        {% if order %}
+            {% for ord in order %}
+               <h2> Активные заказы:</h2>
+                <p>Номер заказа:   {{ord.id}}</p>
+                <p>Состав заказа:    {{ord.product.name}}</p>
+                <p>Количество:    {{ord.quantity}}</p>
+                <p>Направление:
+                    {% if ord.shipping == False %} сбор заказа</p>
+                <p><div>
+                     <a href="{{id}}/user_res">Товар принят</a>
+                </div></p>
+                    {% else %} приём товара
+                    {{id}}
+                <p><div>
+                     <a href="{{id}}/user_res">Товар принят</a>
+                </div></p>
+                    {% endif %}
+                <p>--------------------------------------</p>
+            {% endfor %}
+        {% else %} <h2> Активных заказов пока нет</h2>
+        {% endif %}
+    </div>
+</center>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+<!-- <form action="{% url 'user' %}" method="post">
+                    <p><input type="radio" name="drink" value="rad1"> Заказ в работе<Br>
+                   <input type="radio" name="drink" value="rad2"> Заказ отправлен <Br></p>
+                </form>-->
